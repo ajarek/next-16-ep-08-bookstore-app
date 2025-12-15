@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.75rem;
+
+  /* Warm Bookish Palette */
+  /* Cream Background */
+  --background: #fdfbf7;
+  /* Dark Brown Foreground */
+  --foreground: #2c1810;
+
+  /* White/Off-white Card */
+  --card: #ffffff;
+  --card-foreground: #2c1810;
+
+  --popover: #ffffff;
+  --popover-foreground: #2c1810;
+
+  /* Burgundy Primary */
+  --primary: #8c715f;
+  --primary-foreground: #fdfbf7;
+
+  /* Forest Green Secondary */
+  --secondary: #225c38;
+  --secondary-foreground: #fdfbf7;
+
+  /* Light Beige Muted */
+  --muted: #f3efe6;
+  --muted-foreground: #7d6b5d;
+
+  /* Warm Brown Accent */
+  --accent: #a0522d;
+  --accent-foreground: #fdfbf7;
+
+  /* Destructive */
+  --destructive: #9b1b30;
+  --destructive-foreground: #fdfbf7;
+
+  /* Borders & Inputs */
+  --border: #e6dcc8;
+  --input: #e6dcc8;
+  --ring: #a0522d;
+}
+
+.dark {
+  /* Dark Mode Palette (Rich Browns & Deep Greens) */
+  --background: #1e1410;
+  --foreground: #fdfbf7;
+
+  --card: #2a1e18;
+  --card-foreground: #fdfbf7;
+
+  --popover: #2a1e18;
+  --popover-foreground: #fdfbf7;
+
+  --primary: #8c715f; /* Lighter Burgundy */
+  --primary-foreground: #fdfbf7;
+
+  --secondary: #2e7d4c; /* Lighter Forest Green */
+  --secondary-foreground: #fdfbf7;
+
+  --muted: #3e2f28;
+  --muted-foreground: #b0a090;
+
+  --accent: #c07040; /* Lighter Warm Brown */
+  --accent-foreground: #1e1410;
+
+  --destructive: #b22222;
+  --destructive-foreground: #fdfbf7;
+
+  --border: #4a3a30;
+  --input: #4a3a30;
+  --ring: #c07040;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }
