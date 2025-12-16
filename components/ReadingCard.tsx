@@ -11,7 +11,7 @@ const ReadingCard = ({
 }) => {
   return (
     <div className='flex-none w-[140px] snap-start flex flex-col gap-4 group'>
-      <div className='aspect-[2/3] rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative'>
+      <div className='aspect-2/3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative'>
         <Image
           src={image}
           alt={title}
