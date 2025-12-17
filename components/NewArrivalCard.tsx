@@ -1,16 +1,21 @@
 import { ShoppingBag } from "lucide-react"
 import Image from "next/image"
+import ButtonAddCart from "./ButtonAddCart"
 
 export function NewArrivalCard({
+  id,
   title,
   author,
   price,
   image,
+  category,
 }: {
+  id: string
   title: string
   author: string
   price: string
   image: string
+  category: string
 }) {
   return (
     <div className='flex-none w-[120px] snap-start flex flex-col gap-2 group'>
@@ -32,9 +37,14 @@ export function NewArrivalCard({
         </span>
         <div className='flex items-center justify-between mt-2'>
           <span className='font-bold text-[#4A3A30] text-sm'>{price}</span>
-          <button className='w-8 h-8 rounded-full bg-[#4A3A30] flex items-center justify-center text-[#F9F4EC] hover:bg-[#3E2F28] transition-colors cursor-pointer'>
-            <ShoppingBag className='w-4 h-4' />
-          </button>
+          <ButtonAddCart
+            id={+id}
+            title={title}
+            author={author}
+            image={image}
+            category={category}
+            price={+price}
+          />
         </div>
       </div>
     </div>

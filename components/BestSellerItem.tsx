@@ -1,17 +1,21 @@
-import Image from 'next/image'
-import { Button } from './ui/button'
-
+import Image from "next/image"
+import { Button } from "./ui/button"
+import ButtonAddCart from "./ButtonAddCart"
 
 function BestSellerItem({
   title,
   author,
   price,
   image,
+  id,
+  category,
 }: {
   title: string
   author: string
   price: string
   image: string
+  id: string
+  category: string
 }) {
   return (
     <div className='bg-white p-3 rounded-2xl shadow-sm border flex gap-4'>
@@ -30,21 +34,23 @@ function BestSellerItem({
             {title}
           </h3>
           <p className='text-sm text-[#8C705F]'>{author}</p>
-          <div className='flex items-center gap-1 mt-1'>
-            
-            
-          </div>
+          <div className='flex items-center gap-1 mt-1'></div>
         </div>
-        <div className='flex items-center justify-between mt-2'>
+        <div className='flex items-center justify-between '>
           <span className='font-bold text-[#4A3A30] text-lg'>{price}</span>
-          <Button className='bg-[#4A3A30] text-[#F9F4EC] hover:bg-[#3E2F28] h-8 px-4 text-xs font-bold rounded-lg uppercase cursor-pointer'>
-            Buy Now
-          </Button>
+
+          <ButtonAddCart
+            id={+id}
+            title={title}
+            author={author}
+            image={image}
+            category={category}
+            price={+price}
+          />
         </div>
       </div>
     </div>
   )
 }
-
 
 export default BestSellerItem

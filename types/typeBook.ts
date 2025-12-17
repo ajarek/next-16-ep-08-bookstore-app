@@ -3,13 +3,13 @@ export type Book = {
   title: string
   author: string
   image: string
-  progress: number
-  category: string
-  status: string
-  tag: string
-  feature: boolean
-  new: boolean
-  best: boolean
+  progress?: number
+  category?: string
+  status?: string
+  tag?: string
+  feature?: boolean
+  new?: boolean
+  best?: boolean
   price: number
   quantity?: number
 }

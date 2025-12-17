@@ -76,6 +76,7 @@ export default function Shop() {
             .map((book) => (
               <FeaturedCard
                 key={book.id}
+                id={Number(book.id)}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
@@ -107,6 +108,7 @@ export default function Shop() {
             .map((book) => (
               <FeaturedCard
                 key={book.id}
+                id={Number(book.id)}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
@@ -192,6 +194,7 @@ export default function Shop() {
             .map((book) => (
               <NewArrivalCard
                 key={book.id}
+                id={Number(book.id)}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
@@ -223,6 +226,7 @@ export default function Shop() {
             .map((book) => (
               <BestSellerItem
                 key={book.id}
+                id={Number(book.id)} 
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
