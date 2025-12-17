@@ -1,3 +1,4 @@
+import { ShoppingBag } from "lucide-react"
 import Image from "next/image"
 
 export function NewArrivalCard({
@@ -29,6 +30,12 @@ export function NewArrivalCard({
         <span className='font-bold text-[#4A3A30] text-xs block mt-1'>
           {price}
         </span>
+        <div className='flex items-center justify-between mt-2'>
+          <span className='font-bold text-[#4A3A30] text-sm'>{price}</span>
+          <button className='w-8 h-8 rounded-full bg-[#4A3A30] flex items-center justify-center text-[#F9F4EC] hover:bg-[#3E2F28] transition-colors cursor-pointer'>
+            <ShoppingBag className='w-4 h-4' />
+          </button>
+        </div>
       </div>
     </div>
   )

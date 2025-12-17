@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { BottomNav } from "@/components/BottomNav"
 import Header from "@/components/Header"
+import { ClerkProvider } from "@clerk/nextjs"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
+     <ClerkProvider>
     <html lang='en'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
@@ -39,5 +41,6 @@ export default function RootLayout({
         <BottomNav />
       </body>
     </html>
+    </ClerkProvider>
   )
 }

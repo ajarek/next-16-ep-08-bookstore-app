@@ -5,6 +5,7 @@ import Image from "next/image"
 import PickupCard from "./PickupCard"
 import ReadingCard from "./ReadingCard"
 import books from "@/data/books.json"
+import Greeting from "./Greeting"
 export function ReadingPanel() {
   return (
     <div className='min-h-screen w-full max-w-5xl mx-auto px-5 pb-24 font-sans selection:bg-primary/20'>
@@ -12,11 +13,7 @@ export function ReadingPanel() {
 
       <main className='w-full   px-5 space-y-8 pt-2'>
         {/* Greeting */}
-        <section className='animate-in fade-in slide-in-from-bottom-2 duration-700'>
-          <h1 className='text-3xl font-serif text-[#4A3A30]'>
-            Good evening, Alex
-          </h1>
-        </section>
+        <Greeting />
 
         {/* Hero Section */}
         <section className='space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100'>
@@ -84,7 +81,7 @@ export function ReadingPanel() {
 
           <div className='flex gap-4 overflow-x-auto pb-6 -mx-5 px-5 scrollbar-hide snap-x pt-2'>
             {books
-            .slice(0, 6)
+            .filter(book => book.progress > 0)
             .map(book => (
             <ReadingCard
             key={book.id}

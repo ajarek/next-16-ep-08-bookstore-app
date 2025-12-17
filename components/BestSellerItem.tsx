@@ -1,20 +1,16 @@
 import Image from 'next/image'
 import { Button } from './ui/button'
-import { Star } from 'lucide-react'
+
 
 function BestSellerItem({
   title,
   author,
   price,
-  rating,
-  reviews,
   image,
 }: {
   title: string
   author: string
   price: string
-  rating: number
-  reviews: number
   image: string
 }) {
   return (
@@ -35,24 +31,13 @@ function BestSellerItem({
           </h3>
           <p className='text-sm text-[#8C705F]'>{author}</p>
           <div className='flex items-center gap-1 mt-1'>
-            <div className='flex'>
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`w-3 h-3 ${
-                    i < Math.floor(rating)
-                      ? "text-[#4A3A30] fill-[#4A3A30]"
-                      : "text-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-            <span className='textxs text-[#8C705F] ml-1'>({reviews})</span>
+            
+            
           </div>
         </div>
         <div className='flex items-center justify-between mt-2'>
           <span className='font-bold text-[#4A3A30] text-lg'>{price}</span>
-          <Button className='bg-[#4A3A30] text-[#F9F4EC] hover:bg-[#3E2F28] h-8 px-4 text-xs font-bold rounded-lg uppercase'>
+          <Button className='bg-[#4A3A30] text-[#F9F4EC] hover:bg-[#3E2F28] h-8 px-4 text-xs font-bold rounded-lg uppercase cursor-pointer'>
             Buy Now
           </Button>
         </div>

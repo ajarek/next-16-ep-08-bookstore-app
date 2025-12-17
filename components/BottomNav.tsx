@@ -1,19 +1,21 @@
 "use client"
 
-import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Compass, ShoppingBag, Calendar, Library, User } from "lucide-react"
+import { ShoppingBag, Calendar, Library, User, HomeIcon } from "lucide-react"
+import { SignInButton, UserButton } from "@clerk/nextjs"
+import { useUser } from "@clerk/nextjs"
 
 export function BottomNav() {
   const pathname = usePathname()
 
+  const { isSignedIn } = useUser()
+
   const items = [
-    { name: "Discover", icon: Compass, href: "/discover" },
+    { name: "Home", icon: HomeIcon, href: "/" },
     { name: "Shop", icon: ShoppingBag, href: "/shop" },
     { name: "Events", icon: Calendar, href: "/events" },
-    { name: "Library", icon: Library, href: "/" },
-    { name: "Account", icon: User, href: "/account" },
+    { name: "Library", icon: Library, href: "/library" },
   ]
 
   return (
@@ -40,13 +42,25 @@ export function BottomNav() {
               }`}
             >
               <Icon
-                className={`w-6 h-6 ${isActive ? "fill-current" : ""}`}
+                className={`w-6 h-6 ${isActive ? "text-green-500" : ""}`}
                 strokeWidth={isActive ? 2.5 : 2}
               />
               <span className='text-[10px] font-medium'>{item.name}</span>
             </Link>
           )
         })}
+        {isSignedIn ? (
+          <UserButton />
+        ) : (
+          <SignInButton>
+            <div
+              className={`flex flex-col items-center justify-center  space-y-1 transition-colors duration-200 cursor-pointer hover:text-green-500 `}
+            >
+              <User className={`w-6 h-6 `} />
+              <span className='text-[10px] font-medium'>Profile</span>
+            </div>
+          </SignInButton>
+        )}
       </div>
     </nav>
   )

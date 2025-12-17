@@ -1,7 +1,7 @@
 "use client"
 
 import {
-  ShoppingBag,
+  
   Filter,
   Star,
   Truck,
@@ -9,16 +9,21 @@ import {
 } from "lucide-react"
 import { BottomNav } from "@/components/BottomNav"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import BestSellerItem from "@/components/BestSellerItem"
 import { FeaturedCard } from "@/components/FeaturedCard"
 import { CategoryCard } from "@/components/CategoryCard"
 import { NewArrivalCard } from "@/components/NewArrivalCard"
+import books from "@/data/books.json"
+import { useState } from "react"
+import Greeting from "@/components/Greeting"
 
 export default function Shop() {
+  const [featuredBooks, setFeaturedBooks] = useState(true)
+  const [selectedCategory, setSelectedCategory] = useState("All")
   return (
     <div className='min-h-screen bg-[#F9F4EC] text-[#4A3A30] pb-24 font-sans selection:bg-primary/20'>
       <main className='container max-w-5xl mx-auto px-5 space-y-8 pt-2'>
+        <Greeting />
         {/* Staff Picks Banner */}
         <div className='relative overflow-hidden rounded-4xl h-48 shadow-lg group'>
           <div className='absolute inset-0 bg-gradient-to-r from-[#3E2F28] to-[#5D463C]' />
@@ -49,7 +54,8 @@ export default function Shop() {
           </div>
         </div>
 
-        {/* Featured Books */}
+       {featuredBooks ? (
+        
         <section className='space-y-4'>
           <div className='flex items-center justify-between'>
             <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
@@ -58,32 +64,62 @@ export default function Shop() {
             <Button
               variant='ghost'
               size='sm'
-              className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-0'
+              className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
+              onClick={() => setFeaturedBooks(false)}
             >
               View All
             </Button>
           </div>
           <div className='flex gap-4 overflow-x-auto pb-6 -mx-5 px-5 scrollbar-hide snap-x'>
-            <FeaturedCard
-              title='The Midnight Library'
-              author='Matt Haig'
-              price='$24.99'
-              image='https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400&auto=format&fit=crop'
-            />
-            <FeaturedCard
-              title='Klara and the Sun'
-              author='Kazuo Ishiguro'
-              price='$23.50'
-              image='https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=400&auto=format&fit=crop'
-            />
-            <FeaturedCard
-              title='Project Hail Mary'
-              author='Andy Weir'
-              price='$26.00'
-              image='https://images.unsplash.com/photo-1614726365723-49cfa175b2eb?q=80&w=400&auto=format&fit=crop'
-            />
+            {books
+            .filter(book => book.feature)
+            .map((book) => (
+              <FeaturedCard
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                price={book.price.toFixed(2)}
+                image={book.image}
+              />
+            ))}
+           
+          </div>
+          {/* All Books */}
+        </section>
+       ) : (
+         <section className='space-y-4'>
+          <div className='flex items-center justify-between'>
+            <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
+              All Books {selectedCategory === "All" ? "" : `(${selectedCategory})`}
+            </h2>
+            <Button
+              variant='ghost'
+              size='sm'
+              className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
+              onClick={() => setFeaturedBooks(true)}
+            >
+              View Featured
+            </Button>
+          </div>
+          <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center'>
+            {books
+            .filter(book => book.category === selectedCategory || selectedCategory === "All")
+            .map((book) => (
+              <FeaturedCard
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                price={book.price.toFixed(2)}
+                image={book.image}
+              />
+            ))}
+           
           </div>
         </section>
+       )}
+
+        
+       
 
         {/* Browse by Category */}
         <section className='space-y-4'>
@@ -91,23 +127,36 @@ export default function Shop() {
             <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
               Browse by Category
             </h2>
+            <Button
+              variant='ghost'
+              size='sm'
+              className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
+              onClick={() => setSelectedCategory('All')}
+            >
+              View All
+            </Button>
           </div>
           <div className='grid grid-cols-2 gap-4'>
+           
             <CategoryCard
               title='Fiction'
               image='https://images.unsplash.com/photo-1474932430478-367dbb6832c1?q=80&w=400&auto=format&fit=crop'
+              onClick={() => setSelectedCategory('Fiction')}
             />
             <CategoryCard
               title='Non-Fiction'
               image='https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=400&auto=format&fit=crop'
+              onClick={() => setSelectedCategory('Non-Fiction')}
             />
             <CategoryCard
               title='Poetry'
               image='https://images.unsplash.com/photo-1516546453174-5e1098a4b4af?q=80&w=400&auto=format&fit=crop'
+              onClick={() => setSelectedCategory('Poetry')}
             />
             <CategoryCard
               title='Biography'
               image='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&auto=format&fit=crop'
+              onClick={() => setSelectedCategory('Biography')}
             />
           </div>
         </section>
@@ -138,24 +187,18 @@ export default function Shop() {
             </h2>
           </div>
           <div className='flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 scrollbar-hide snap-x'>
-            <NewArrivalCard
-              title='Beautiful World'
-              author='Sally Rooney'
-              price='$18.00'
-              image='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=300&auto=format&fit=crop'
-            />
-            <NewArrivalCard
-              title='Cloud Cuckoo Land'
-              author='Anthony Doerr'
-              price='$30.00'
-              image='https://images.unsplash.com/photo-1511108690759-009324a90311?q=80&w=300&auto=format&fit=crop'
-            />
-            <NewArrivalCard
-              title='Matrix'
-              author='Lauren Groff'
-              price='$27.00'
-              image='https://images.unsplash.com/photo-1518373714866-3f14797e09a3?q=80&w=300&auto=format&fit=crop'
-            />
+            {books
+            .filter(book => book.new)
+            .map((book) => (
+              <NewArrivalCard
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                price={book.price.toFixed(2)}
+                image={book.image}
+              />
+            ))}
+            
           </div>
         </section>
 
@@ -175,30 +218,18 @@ export default function Shop() {
           </div>
 
           <div className='space-y-3'>
-            <BestSellerItem
-              title='The Song of Achilles'
-              author='Madeline Miller'
-              price='$16.99'
-              rating={4.8}
-              reviews={2348}
-              image='https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=300&auto=format&fit=crop'
-            />
-            <BestSellerItem
-              title='Atomic Habits'
-              author='James Clear'
-              price='$21.99'
-              rating={4.9}
-              reviews={5892}
-              image='https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=300&auto=format&fit=crop' // Recycling image for placeholder
-            />
-            <BestSellerItem
-              title='Dune'
-              author='Frank Herbert'
-              price='$18.00'
-              rating={4.7}
-              reviews={3421}
-              image='https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=300&auto=format&fit=crop'
-            />
+            {books
+            .filter(book => book.best)
+            .map((book) => (
+              <BestSellerItem
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                price={book.price.toFixed(2)}
+                image={book.image}
+              />
+            ))}
+            
           </div>
         </section>
 
