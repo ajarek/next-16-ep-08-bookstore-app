@@ -1,5 +1,4 @@
 import { Book, LogIn, UserRoundPen } from "lucide-react"
-import NextImage from "next/image"
 import Link from "next/link"
 import {
   SignInButton,
@@ -9,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs"
 import { Button } from "./ui/button"
+import {ModeToggle} from "./ModeToggle"
 
 const Header = () => {
   return (
@@ -36,6 +36,7 @@ const Header = () => {
           <UserButton />
         </SignedIn>
       </div>
+        <ModeToggle />
     </header>
   )
 }

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Author Meet & Greet: Romantic Tales",
+    "date": "December 22, 2025",
+    "time": "6:00 PM - 8:00 PM",
+    "location": "Downtown BookNook",
+    "description": "Join us for an intimate evening with bestselling author. Sign books and take photos.",
+    "attendees": 127,
+    "image": "/images/milk_honey.avif",
+    "category": "Author Event",
+    "price": 15
+  },
+  {
+    "id": 2,
+    "title": "Monthly Book Club Discussion",
+    "date": "January 5, 2026",
+    "time": "7:00 PM - 9:00 PM",
+    "location": "Downtown BookNook - Reading Corner",
+    "description": "This month we're discussing contemporary fiction. New members welcome!",
+    "attendees": 34,
+    "image": "/images/milk_honey.avif",
+    "category": "Book Club",
+    "price": 0
+  },
+  {
+    "id": 3,
+    "title": "Young Readers Workshop",
+    "date": "December 28, 2025",
+    "time": "3:00 PM - 5:00 PM",
+    "location": "Downtown BookNook - Kids Area",
+    "description": "Interactive workshop for ages 8-12. Learn creative writing techniques with our guest instructor.",
+    "attendees": 18,
+    "image": "/images/milk_honey.avif",
+    "category": "Workshop",
+    "price": 25
+  },
+  {
+    "id": 4,
+    "title": "Holiday Book Signing",
+    "date": "December 20, 2025",
+    "time": "2:00 PM - 6:00 PM",
+    "location": "Downtown BookNook",
+    "description": "Multiple authors signing copies of their latest releases. Perfect for holiday gifts!",
+    "attendees": 89,
+    "image": "/images/milk_honey.avif",
+    "category": "Book Signing",
+    "price": 0
+  },
+  {
+    "id": 5,
+    "title": "Poetry Evening & Open Mic",
+    "date": "January 12, 2026",
+    "time": "7:30 PM - 10:00 PM",
+    "location": "Downtown BookNook",
+    "description": "Share your poetry or listen to local poets. Refreshments provided. RSVP required.",
+    "attendees": 56,
+    "image": "/images/milk_honey.avif",
+    "category": "Poetry Night",
+    "price": 5
+  },
+  {
+    "id": 6,
+    "title": "Mystery Book Series Launch",
+    "date": "January 18, 2026",
+    "time": "6:00 PM - 8:00 PM",
+    "location": "Downtown BookNook",
+    "description": "Celebrate the launch of an exciting new mystery series. Exclusive pre-order deals available.",
+    "attendees": 92,
+    "image": "/images/milk_honey.avif",
+    "category": "Book Launch",
+    "price": 0
+  }
+]

@@ -9,18 +9,15 @@ import Greeting from "./Greeting"
 export function ReadingPanel() {
   return (
     <div className='min-h-screen w-full max-w-5xl mx-auto px-5 pb-24 font-sans selection:bg-primary/20'>
-     
-
       <main className='w-full   px-5 space-y-8 pt-2'>
         {/* Greeting */}
-        <Greeting />
+        <Greeting label='Good evening,' />
 
         {/* Hero Section */}
         <section className='space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100'>
           <div className='relative group overflow-hidden rounded-4xl shadow-xl h-[320px]'>
             {/* Fallback image if generation fails */}
             <div className="absolute inset-0 bg-[url('/images/hero-image.jpg')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" />
-           
 
             <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  z-20   text-white text-center'>
               <p className=' text-sm font-medium mb-1 tracking-wide'>
@@ -40,7 +37,7 @@ export function ReadingPanel() {
               <Image
                 src='/images/author-event.jpg'
                 width={100}
-                height={150}  
+                height={150}
                 className='w-full h-full object-cover shadow-2xl'
                 alt='Event Book'
               />
@@ -81,16 +78,15 @@ export function ReadingPanel() {
 
           <div className='flex gap-4 overflow-x-auto pb-6 -mx-5 px-5 scrollbar-hide snap-x pt-2'>
             {books
-            .filter(book => book.progress > 0)
-            .map(book => (
-            <ReadingCard
-            key={book.id}
-              title={book.title}
-              progress={book.progress}
-              image={book.image}
-            />
-           
-            ))}
+              .filter((book) => book.progress > 0)
+              .map((book) => (
+                <ReadingCard
+                  key={book.id}
+                  title={book.title}
+                  progress={book.progress}
+                  image={book.image}
+                />
+              ))}
           </div>
         </section>
 
@@ -104,23 +100,21 @@ export function ReadingPanel() {
 
           <div className='grid gap-4'>
             {books
-            .slice(0, 4)
+              .slice(0, 4)
 
-            .map(book => (
-            <PickupCard
-              key={book.id}
-              title={book.title}
-              author={book.author}
-              status={book.status}
-              tag={book.tag}
-              image={book.image}
-            />
-            ))}
+              .map((book) => (
+                <PickupCard
+                  key={book.id}
+                  title={book.title}
+                  author={book.author}
+                  status={book.status}
+                  tag={book.tag}
+                  image={book.image}
+                />
+              ))}
           </div>
         </section>
       </main>
-
-      
     </div>
   )
 }

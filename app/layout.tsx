@@ -4,6 +4,7 @@ import "./globals.css"
 import { BottomNav } from "@/components/BottomNav"
 import Header from "@/components/Header"
 import { ClerkProvider } from "@clerk/nextjs"
+import { ThemeProvider } from "@/components/ThemeProvider"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,13 +33,20 @@ export default function RootLayout({
 }>) {
   return (
      <ClerkProvider>
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+         <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
         <Header />
         {children}
         <BottomNav />
+        </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>

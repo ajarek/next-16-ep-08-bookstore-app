@@ -21,14 +21,14 @@ export default function Shop() {
   const [featuredBooks, setFeaturedBooks] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState("All")
   return (
-    <div className='min-h-screen bg-[#F9F4EC] text-[#4A3A30] pb-24 font-sans selection:bg-primary/20'>
+    <div className='min-h-screen  pb-24 font-sans selection:bg-primary/20'>
       <main className='container max-w-5xl mx-auto px-5 space-y-8 pt-2'>
-        <Greeting />
+        <Greeting label="You are in the store,"/>
         {/* Staff Picks Banner */}
         <div className='relative overflow-hidden rounded-4xl h-48 shadow-lg group'>
-          <div className='absolute inset-0 bg-gradient-to-r from-[#3E2F28] to-[#5D463C]' />
+          <div className='absolute inset-0 bg-linear-to-r from-[#3E2F28] to-[#5D463C]' />
           {/* Decorative sheen */}
-          <div className='absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50' />
+          <div className='absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent opacity-50' />
 
           <div className='absolute inset-0 p-6 flex flex-col justify-center items-start z-10'>
             <div className='flex items-center gap-1.5 text-[#F3EFE6] mb-2'>
@@ -76,11 +76,12 @@ export default function Shop() {
             .map((book) => (
               <FeaturedCard
                 key={book.id}
-                id={Number(book.id)}
+                id={book.id.toString()}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
                 image={book.image}
+                category={book.category || ''}
               />
             ))}
            
@@ -108,11 +109,12 @@ export default function Shop() {
             .map((book) => (
               <FeaturedCard
                 key={book.id}
-                id={Number(book.id)}
+                id={book.id.toString()}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
                 image={book.image}
+                category={book.category || ''}
               />
             ))}
            
@@ -194,11 +196,12 @@ export default function Shop() {
             .map((book) => (
               <NewArrivalCard
                 key={book.id}
-                id={Number(book.id)}
+                id={book.id.toString()}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
                 image={book.image}
+                category={book.category || ''}
               />
             ))}
             
@@ -226,11 +229,12 @@ export default function Shop() {
             .map((book) => (
               <BestSellerItem
                 key={book.id}
-                id={Number(book.id)} 
+                id={book.id.toString()}
                 title={book.title}
                 author={book.author}
                 price={book.price.toFixed(2)}
                 image={book.image}
+                category={book.category || ''}
               />
             ))}
             
