@@ -8,7 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs"
 import { Button } from "./ui/button"
-import {ModeToggle} from "./ModeToggle"
+import { ModeToggle } from "./ModeToggle"
 
 const Header = () => {
   return (

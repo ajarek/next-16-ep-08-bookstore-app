@@ -1,6 +1,5 @@
 "use client"
 
-
 import Greeting from "@/components/Greeting"
 import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/store/cartStore"
@@ -12,16 +11,18 @@ const Library = () => {
   if (items.length === 0) {
     return (
       <div className='min-h-screen w-full max-w-5xl mx-auto px-5 pb-24 font-sans selection:bg-primary/20 space-y-8 pt-8'>
-        <Greeting label="You are in your library," />
+        <Greeting label='You are in your library,' />
         <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center'>
-          <p className='text-center text-2xl font-bold text-[#4A3A30] dark:text-primary'>No items in library</p>
+          <p className='text-center text-2xl font-bold text-[#4A3A30] dark:text-primary'>
+            No items in library
+          </p>
         </div>
       </div>
     )
   }
   return (
     <div className='min-h-screen w-full max-w-5xl mx-auto px-5 pb-24 font-sans selection:bg-primary/20 space-y-8 pt-8'>
-      <Greeting label="You are in your library," />
+      <Greeting label='You are in your library,' />
       <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center'>
         {items.map((item: Book) => (
           <div
@@ -42,18 +43,25 @@ const Library = () => {
               </h3>
               <p className='text-xs text-[#8C705F] '>{item.author}</p>
               <div className='space-y-1'>
-          <div className='h-1.5 w-full bg-[#E6DCC8] rounded-full overflow-hidden'>
-            <div
-              className='h-full bg-[#2E7D32] rounded-full'
-              style={{ width: `${item.progress}%` }}
-            />
-          </div>
-          <p className='text-[10px] text-[#8C705F] font-medium'>
-            {item.progress}% Complete
-          </p>
-        </div>
+                <div className='h-1.5 w-full bg-[#E6DCC8] rounded-full overflow-hidden'>
+                  <div
+                    className='h-full bg-[#2E7D32] rounded-full'
+                    style={{ width: `${item.progress}%` }}
+                  />
+                </div>
+                <p className='text-[10px] text-[#8C705F] font-medium'>
+                  {item.progress}% Complete
+                </p>
+              </div>
             </div>
-            <Button variant='destructive' disabled={items.length === 0} onClick={() => removeItemFromCart(item.id.toString())} className="cursor-pointer">Delete</Button>
+            <Button
+              variant='destructive'
+              disabled={items.length === 0}
+              onClick={() => removeItemFromCart(item.id.toString())}
+              className='cursor-pointer'
+            >
+              Delete
+            </Button>
           </div>
         ))}
       </div>

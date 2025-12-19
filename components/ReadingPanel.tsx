@@ -6,6 +6,7 @@ import PickupCard from "./PickupCard"
 import ReadingCard from "./ReadingCard"
 import books from "@/data/books.json"
 import Greeting from "./Greeting"
+import Link from "next/link"
 export function ReadingPanel() {
   return (
     <div className='min-h-screen w-full max-w-5xl mx-auto px-5 pb-24 font-sans selection:bg-primary/20'>
@@ -14,8 +15,8 @@ export function ReadingPanel() {
         <Greeting label='Good evening,' />
 
         {/* Hero Section */}
-        <section className='space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100'>
-          <div className='relative group overflow-hidden rounded-4xl shadow-xl h-[320px]'>
+        <section className='space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 '>
+          <div className='relative group overflow-hidden rounded-4xl shadow-xl h-[320px] '>
             {/* Fallback image if generation fails */}
             <div className="absolute inset-0 bg-[url('/images/hero-image.jpg')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" />
 
@@ -32,7 +33,7 @@ export function ReadingPanel() {
             </div>
           </div>
 
-          <div className='bg-[#FAF7F2] p-5 rounded-3xl shadow-sm border border-[#E6DCC8] flex items-center justify-between group cursor-pointer hover:border-[#D6CCC0] transition-colors gap-4'>
+          <div className='bg-[#FAF7F2] p-5 rounded-3xl shadow-sm border border-[#E6DCC8] flex items-center justify-between group cursor-pointer hover:border-[#D6CCC0] transition-colors gap-4 '>
             <div className='relative rounded-md overflow-hidden shrink-0 shadow-md -rotate-3 group-hover:rotate-0 transition-transform duration-300 '>
               <Image
                 src='/images/author-event.jpg'
@@ -54,7 +55,7 @@ export function ReadingPanel() {
               <h3 className='text-xl font-serif text-[#4A3A30] dark:text-primary leading-snug'>
                 Evening with <br /> Elena Ferrante
               </h3>
-              <p className='text-[#8C705F] text-xs font-medium pt-1'>
+              <p className='text-[#8C705F] text-xs font-medium pt-1 dark:text-primary'>
                 7:00 PM • Main Hall
               </p>
             </div>
@@ -71,8 +72,9 @@ export function ReadingPanel() {
               variant='ghost'
               size='sm'
               className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-sm font-medium px-0'
+              asChild
             >
-              View All
+              <Link href='/shop'>View All</Link>
             </Button>
           </div>
 

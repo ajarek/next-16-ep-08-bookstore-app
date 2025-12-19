@@ -5,7 +5,7 @@ import Greeting from "@/components/Greeting"
 import { Button } from "@/components/ui/button"
 import { BottomNav } from "@/components/BottomNav"
 import Image from "next/image"
-import  eventData  from "@/data/events.json"
+import eventData from "@/data/events.json"
 interface Event {
   id: number
   title: string
@@ -18,7 +18,6 @@ interface Event {
   category: string
   price?: number
 }
-
 
 export default function Events() {
   return (

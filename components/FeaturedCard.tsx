@@ -32,7 +32,9 @@ export function FeaturedCard({
         </h3>
         <p className='text-xs text-[#8C705F] dark:text-primary'>{author}</p>
         <div className='flex items-center justify-between mt-2'>
-          <span className='font-bold text-[#4A3A30] dark:text-primary text-sm'>{price}</span>
+          <span className='font-bold text-[#4A3A30] dark:text-primary text-sm'>
+            {price}
+          </span>
           <ButtonAddCart
             id={+id}
             title={title}

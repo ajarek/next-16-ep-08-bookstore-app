@@ -30,12 +30,16 @@ export function NewArrivalCard({
         <h3 className='font-serif font-bold text-[#4A3A30] dark:text-primary text-sm leading-tight line-clamp-1'>
           {title}
         </h3>
-        <p className='text-[10px] text-[#8C705F] dark:text-primary line-clamp-1'>{author}</p>
+        <p className='text-[10px] text-[#8C705F] dark:text-primary line-clamp-1'>
+          {author}
+        </p>
         <span className='font-bold text-[#4A3A30] dark:text-primary text-xs block mt-1'>
           {price}
         </span>
         <div className='flex items-center justify-between mt-2'>
-          <span className='font-bold text-[#4A3A30] dark:text-primary text-sm'>{price}</span>
+          <span className='font-bold text-[#4A3A30] dark:text-primary text-sm'>
+            {price}
+          </span>
           <ButtonAddCart
             id={+id}
             title={title}

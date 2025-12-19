@@ -4,7 +4,7 @@ import { useCartStore } from "@/store/cartStore"
 import { useRouter } from "next/navigation"
 import type { Book } from "@/types/typeBook"
 import { toast } from "sonner"
-import {  ShoppingBag } from "lucide-react"
+import { ShoppingBag } from "lucide-react"
 import { Button } from "./ui/button"
 
 const ButtonAddCart = ({

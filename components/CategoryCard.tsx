@@ -1,8 +1,19 @@
-import Image from "next/image";
+import Image from "next/image"
 
-export function CategoryCard({ title, image, onClick }: { title: string; image: string; onClick: () => void }) {
+export function CategoryCard({
+  title,
+  image,
+  onClick,
+}: {
+  title: string
+  image: string
+  onClick: () => void
+}) {
   return (
-    <div className='relative h-24 rounded-2xl overflow-hidden shadow-sm group cursor-pointer' onClick={() => onClick()}>
+    <div
+      className='relative h-24 rounded-2xl overflow-hidden shadow-sm group cursor-pointer'
+      onClick={() => onClick()}
+    >
       <div className='absolute inset-0 w-full h-full'>
         <Image
           src={image}

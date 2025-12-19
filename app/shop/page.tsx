@@ -1,12 +1,6 @@
 "use client"
 
-import {
-  
-  Filter,
-  Star,
-  Truck,
-  Crown,
-} from "lucide-react"
+import { Filter, Star, Truck, Crown } from "lucide-react"
 import { BottomNav } from "@/components/BottomNav"
 import { Button } from "@/components/ui/button"
 import BestSellerItem from "@/components/BestSellerItem"
@@ -23,7 +17,7 @@ export default function Shop() {
   return (
     <div className='min-h-screen  pb-24 font-sans selection:bg-primary/20'>
       <main className='container max-w-5xl mx-auto px-5 space-y-8 pt-2'>
-        <Greeting label="You are in the store,"/>
+        <Greeting label='You are in the store,' />
         {/* Staff Picks Banner */}
         <div className='relative overflow-hidden rounded-4xl h-48 shadow-lg group'>
           <div className='absolute inset-0 bg-linear-to-r from-[#3E2F28] to-[#5D463C]' />
@@ -54,76 +48,75 @@ export default function Shop() {
           </div>
         </div>
 
-       {featuredBooks ? (
-        
-        <section className='space-y-4'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
-              Featured Books
-            </h2>
-            <Button
-              variant='ghost'
-              size='sm'
-              className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
-              onClick={() => setFeaturedBooks(false)}
-            >
-              View All
-            </Button>
-          </div>
-          <div className='flex gap-4 overflow-x-auto pb-6 -mx-5 px-5 scrollbar-hide snap-x'>
-            {books
-            .filter(book => book.feature)
-            .map((book) => (
-              <FeaturedCard
-                key={book.id}
-                id={book.id.toString()}
-                title={book.title}
-                author={book.author}
-                price={book.price.toFixed(2)}
-                image={book.image}
-                category={book.category || ''}
-              />
-            ))}
-           
-          </div>
-          {/* All Books */}
-        </section>
-       ) : (
-         <section className='space-y-4'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
-              All Books {selectedCategory === "All" ? "" : `(${selectedCategory})`}
-            </h2>
-            <Button
-              variant='ghost'
-              size='sm'
-              className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
-              onClick={() => setFeaturedBooks(true)}
-            >
-              View Featured
-            </Button>
-          </div>
-          <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center'>
-            {books
-            .filter(book => book.category === selectedCategory || selectedCategory === "All")
-            .map((book) => (
-              <FeaturedCard
-                key={book.id}
-                id={book.id.toString()}
-                title={book.title}
-                author={book.author}
-                price={book.price.toFixed(2)}
-                image={book.image}
-                category={book.category || ''}
-              />
-            ))}
-           
-          </div>
-        </section>
-       )}
-
-        
-       
+        {featuredBooks ? (
+          <section className='space-y-4'>
+            <div className='flex items-center justify-between'>
+              <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
+                Featured Books
+              </h2>
+              <Button
+                variant='ghost'
+                size='sm'
+                className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
+                onClick={() => setFeaturedBooks(false)}
+              >
+                View All
+              </Button>
+            </div>
+            <div className='flex gap-4 overflow-x-auto pb-6 -mx-5 px-5 scrollbar-hide snap-x'>
+              {books
+                .filter((book) => book.feature)
+                .map((book) => (
+                  <FeaturedCard
+                    key={book.id}
+                    id={book.id.toString()}
+                    title={book.title}
+                    author={book.author}
+                    price={book.price.toFixed(2)}
+                    image={book.image}
+                    category={book.category || ""}
+                  />
+                ))}
+            </div>
+            {/* All Books */}
+          </section>
+        ) : (
+          <section className='space-y-4'>
+            <div className='flex items-center justify-between'>
+              <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
+                All Books{" "}
+                {selectedCategory === "All" ? "" : `(${selectedCategory})`}
+              </h2>
+              <Button
+                variant='ghost'
+                size='sm'
+                className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
+                onClick={() => setFeaturedBooks(true)}
+              >
+                View Featured
+              </Button>
+            </div>
+            <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center'>
+              {books
+                .filter(
+                  (book) =>
+                    book.category === selectedCategory ||
+                    selectedCategory === "All"
+                )
+                .map((book) => (
+                  <FeaturedCard
+                    key={book.id}
+                    id={book.id.toString()}
+                    title={book.title}
+                    author={book.author}
+                    price={book.price.toFixed(2)}
+                    image={book.image}
+                    category={book.category || ""}
+                  />
+                ))}
+            </div>
+          </section>
+        )}
 
         {/* Browse by Category */}
         <section className='space-y-4'>
@@ -135,32 +128,31 @@ export default function Shop() {
               variant='ghost'
               size='sm'
               className='text-[#8C705F] hover:text-[#7A6050] hover:bg-transparent text-xs uppercase tracking-wide font-bold px-2'
-              onClick={() => setSelectedCategory('All')}
+              onClick={() => setSelectedCategory("All")}
             >
               View All
             </Button>
           </div>
           <div className='grid grid-cols-2 gap-4'>
-           
             <CategoryCard
               title='Fiction'
               image='https://images.unsplash.com/photo-1474932430478-367dbb6832c1?q=80&w=400&auto=format&fit=crop'
-              onClick={() => setSelectedCategory('Fiction')}
+              onClick={() => setSelectedCategory("Fiction")}
             />
             <CategoryCard
               title='Non-Fiction'
               image='https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=400&auto=format&fit=crop'
-              onClick={() => setSelectedCategory('Non-Fiction')}
+              onClick={() => setSelectedCategory("Non-Fiction")}
             />
             <CategoryCard
               title='Poetry'
               image='https://images.unsplash.com/photo-1516546453174-5e1098a4b4af?q=80&w=400&auto=format&fit=crop'
-              onClick={() => setSelectedCategory('Poetry')}
+              onClick={() => setSelectedCategory("Poetry")}
             />
             <CategoryCard
               title='Biography'
               image='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&auto=format&fit=crop'
-              onClick={() => setSelectedCategory('Biography')}
+              onClick={() => setSelectedCategory("Biography")}
             />
           </div>
         </section>
@@ -192,19 +184,18 @@ export default function Shop() {
           </div>
           <div className='flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 scrollbar-hide snap-x'>
             {books
-            .filter(book => book.new)
-            .map((book) => (
-              <NewArrivalCard
-                key={book.id}
-                id={book.id.toString()}
-                title={book.title}
-                author={book.author}
-                price={book.price.toFixed(2)}
-                image={book.image}
-                category={book.category || ''}
-              />
-            ))}
-            
+              .filter((book) => book.new)
+              .map((book) => (
+                <NewArrivalCard
+                  key={book.id}
+                  id={book.id.toString()}
+                  title={book.title}
+                  author={book.author}
+                  price={book.price.toFixed(2)}
+                  image={book.image}
+                  category={book.category || ""}
+                />
+              ))}
           </div>
         </section>
 
@@ -225,19 +216,18 @@ export default function Shop() {
 
           <div className='space-y-3'>
             {books
-            .filter(book => book.best)
-            .map((book) => (
-              <BestSellerItem
-                key={book.id}
-                id={book.id.toString()}
-                title={book.title}
-                author={book.author}
-                price={book.price.toFixed(2)}
-                image={book.image}
-                category={book.category || ''}
-              />
-            ))}
-            
+              .filter((book) => book.best)
+              .map((book) => (
+                <BestSellerItem
+                  key={book.id}
+                  id={book.id.toString()}
+                  title={book.title}
+                  author={book.author}
+                  price={book.price.toFixed(2)}
+                  image={book.image}
+                  category={book.category || ""}
+                />
+              ))}
           </div>
         </section>
 
@@ -251,7 +241,9 @@ export default function Shop() {
               <h4 className='font-serif font-bold text-[#4A3A30] dark:text-primary'>
                 Free Shipping
               </h4>
-              <p className='text-xs text-[#8C705F] dark:text-primary'>On orders over $50.00</p>
+              <p className='text-xs text-[#8C705F] dark:text-primary'>
+                On orders over $50.00
+              </p>
             </div>
           </div>
 
@@ -280,9 +272,3 @@ export default function Shop() {
     </div>
   )
 }
-
-
-
-
-
-

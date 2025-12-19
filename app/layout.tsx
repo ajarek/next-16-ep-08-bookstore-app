@@ -32,23 +32,23 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-     <ClerkProvider>
-    <html lang='en' suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
-      >
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
+    <ClerkProvider>
+      <html lang='en' suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
+        >
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
             enableSystem
             disableTransitionOnChange
           >
-        <Header />
-        {children}
-        <BottomNav />
-        </ThemeProvider>
-      </body>
-    </html>
+            <Header />
+            {children}
+            <BottomNav />
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider>
   )
 }
