@@ -56,7 +56,7 @@ export default function Events() {
 
         {/* Upcoming Events */}
         <div>
-          <h3 className='text-2xl font-serif text-[#4A3A30] mb-6'>
+          <h3 className='text-2xl font-serif  dark:text-primary mb-6'>
             Upcoming Events
           </h3>
 
@@ -94,7 +94,7 @@ export default function Events() {
                       {event.price && event.price > 0 && (
                         <div className='text-right'>
                           <p className='text-sm text-[#8C705F]'>Price</p>
-                          <p className='text-xl font-bold text-[#4A3A30]'>
+                          <p className='text-xl font-bold text-[#4A3A30] dark:text-primary'>
                             ${event.price}
                           </p>
                         </div>
@@ -146,10 +146,10 @@ export default function Events() {
 
         {/* Call to Action */}
         <div className='bg-linear-to-r from-[#E8DCC4] to-[#F5F0E8] rounded-2xl p-8 border border-[#D9CDB5] text-center'>
-          <h3 className='text-xl font-serif text-[#4A3A30] mb-2'>
+          <h3 className='text-xl font-serif text-[#4A3A30] dark:text-primary mb-2'>
             Can&apos;t find what you&apos;re looking for?
           </h3>
-          <p className='text-sm text-[#8C705F] mb-4'>
+          <p className='text-sm text-[#8C705F] dark:text-primary mb-4'>
             Subscribe to our event newsletter to get notified about upcoming
             events and special book releases.
           </p>

@@ -14,7 +14,7 @@ const Library = () => {
       <div className='min-h-screen w-full max-w-5xl mx-auto px-5 pb-24 font-sans selection:bg-primary/20 space-y-8 pt-8'>
         <Greeting label="You are in your library," />
         <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center'>
-          <p className='text-center text-2xl font-bold text-[#4A3A30]'>No items in library</p>
+          <p className='text-center text-2xl font-bold text-[#4A3A30] dark:text-primary'>No items in library</p>
         </div>
       </div>
     )
@@ -37,10 +37,10 @@ const Library = () => {
               />
             </div>
             <div className='space-y-1'>
-              <h3 className='font-serif font-bold text-[#4A3A30] leading-tight line-clamp-1'>
+              <h3 className='font-serif font-bold text-[#4A3A30] dark:text-primary leading-tight line-clamp-1'>
                 {item.title}
               </h3>
-              <p className='text-xs text-[#8C705F]'>{item.author}</p>
+              <p className='text-xs text-[#8C705F] '>{item.author}</p>
               <div className='space-y-1'>
           <div className='h-1.5 w-full bg-[#E6DCC8] rounded-full overflow-hidden'>
             <div

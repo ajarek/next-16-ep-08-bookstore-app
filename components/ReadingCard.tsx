@@ -20,7 +20,7 @@ const ReadingCard = ({
         />
       </div>
       <div className='space-y-2 px-1'>
-        <h4 className='text-sm font-serif font-medium text-[#4A3A30] line-clamp-1'>
+        <h4 className='text-sm font-serif font-medium text-[#4A3A30] dark:text-primary line-clamp-1'>
           {title}
         </h4>
         <div className='space-y-1'>

@@ -21,10 +21,10 @@ const PickupCard = ({
       <div className='flex-1 min-w-0'>
         <div className='flex justify-between items-start'>
           <div>
-            <h4 className='font-serif text-[#4A3A30] font-medium text-lg leading-tight'>
+            <h4 className='font-serif text-[#4A3A30] dark:text-primary font-medium text-lg leading-tight'>
               {title}
             </h4>
-            <p className='text-sm text-[#8C705F] mt-0.5'>{author}</p>
+            <p className='text-sm text-[#8C705F] dark:text-primary mt-0.5'>{author}</p>
           </div>
           <span className='text-[10px] font-bold text-[#9C1F38] bg-[#9C1F38]/10 px-2 py-1 rounded-sm tracking-wider uppercase'>
             {tag}

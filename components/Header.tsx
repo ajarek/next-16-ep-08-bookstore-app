@@ -35,8 +35,8 @@ const Header = () => {
         <SignedIn>
           <UserButton />
         </SignedIn>
-      </div>
         <ModeToggle />
+      </div>
     </header>
   )
 }

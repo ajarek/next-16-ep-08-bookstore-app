@@ -47,11 +47,11 @@ export function ReadingPanel() {
                 <span className='text-[10px] font-bold tracking-widest text-[#8C705F] uppercase'>
                   Author Event
                 </span>
-                <span className='bg-white px-2 py-1 rounded-md text-[10px] font-bold text-[#4A3A30] shadow-sm border border-black/5'>
+                <span className='bg-white px-2 py-1 rounded-md text-[10px] font-bold text-[#4A3A30] dark:text-primary shadow-sm border border-black/5'>
                   DEC 25
                 </span>
               </div>
-              <h3 className='text-xl font-serif text-[#4A3A30] leading-snug'>
+              <h3 className='text-xl font-serif text-[#4A3A30] dark:text-primary leading-snug'>
                 Evening with <br /> Elena Ferrante
               </h3>
               <p className='text-[#8C705F] text-xs font-medium pt-1'>
@@ -64,7 +64,7 @@ export function ReadingPanel() {
         {/* Currently Reading */}
         <section className='space-y-4 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200'>
           <div className='flex items-center justify-between px-1'>
-            <h2 className='text-xl font-serif text-[#4A3A30]'>
+            <h2 className='text-xl font-serif text-[#4A3A30] dark:text-primary'>
               Currently Reading
             </h2>
             <Button
@@ -93,7 +93,7 @@ export function ReadingPanel() {
         {/* Your Holds Ready */}
         <section className='space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 pb-4'>
           <div className='flex items-center justify-between px-1'>
-            <h2 className='text-xl font-serif text-[#4A3A30]'>
+            <h2 className='text-xl font-serif  dark:text-primary'>
               Your Holds Ready
             </h2>
           </div>

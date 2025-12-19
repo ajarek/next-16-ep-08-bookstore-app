@@ -37,8 +37,8 @@ export function BottomNav() {
               href={item.href}
               className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors duration-200 ${
                 isActive
-                  ? "text-[#4A3A30]"
-                  : "text-[#8C705F] hover:text-[#4A3A30]"
+                  ? "text-[#4A3A30] dark:text-primary"
+                  : "text-[#8C705F] hover:text-[#4A3A30] dark:hover:text-primary"
               }`}
             >
               <Icon

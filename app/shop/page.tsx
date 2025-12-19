@@ -58,7 +58,7 @@ export default function Shop() {
         
         <section className='space-y-4'>
           <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
+            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
               Featured Books
             </h2>
             <Button
@@ -91,7 +91,7 @@ export default function Shop() {
        ) : (
          <section className='space-y-4'>
           <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
+            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
               All Books {selectedCategory === "All" ? "" : `(${selectedCategory})`}
             </h2>
             <Button
@@ -128,7 +128,7 @@ export default function Shop() {
         {/* Browse by Category */}
         <section className='space-y-4'>
           <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
+            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
               Browse by Category
             </h2>
             <Button
@@ -186,7 +186,7 @@ export default function Shop() {
         {/* New Arrivals */}
         <section className='space-y-4'>
           <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
+            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
               New Arrivals
             </h2>
           </div>
@@ -211,7 +211,7 @@ export default function Shop() {
         {/* Best Sellers */}
         <section className='space-y-4'>
           <div className='flex items-center justify-between'>
-            <h2 className='text-xl font-serif font-bold text-[#4A3A30]'>
+            <h2 className='text-xl font-serif font-bold text-[#4A3A30] dark:text-primary'>
               Best Sellers
             </h2>
             <Button
@@ -248,10 +248,10 @@ export default function Shop() {
               <Truck className='w-5 h-5 text-[#F3EFE6]' />
             </div>
             <div>
-              <h4 className='font-serif font-bold text-[#4A3A30]'>
+              <h4 className='font-serif font-bold text-[#4A3A30] dark:text-primary'>
                 Free Shipping
               </h4>
-              <p className='text-xs text-[#8C705F]'>On orders over $50.00</p>
+              <p className='text-xs text-[#8C705F] dark:text-primary'>On orders over $50.00</p>
             </div>
           </div>
 
